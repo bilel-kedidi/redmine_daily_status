@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_daily_status do
   name 'Daily Status'
   author 'Amol Pujari, Vishal Mene'
   description 'Consolidated Team Daily Status'
-  version '0.0.1'
+  version '0.0.2'
   url 'https://github.com/gs-lab/redmine_daily_status'
   author_url 'https://github.com/gs-lab/redmine_daily_status'
 

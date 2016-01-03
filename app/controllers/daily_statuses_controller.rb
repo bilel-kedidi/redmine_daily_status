@@ -37,7 +37,7 @@ class DailyStatusesController < ApplicationController
 
     params[:daily_status][:author_id] = User.current.id # current user id
 
-    if @todays_status.update_attributes params[:daily_status]
+    if @todays_status.update_attributes daily_status_params
       flash[:notice] = l(:label_status_saved)
 
       if !params[:daily_status][:is_email_sent].nil? and @todays_status.email
@@ -59,5 +59,10 @@ class DailyStatusesController < ApplicationController
     #id = params[:project_id].to_s.to_i
     #return @project = Project.where(:id => params[:project_id]).first if id > 0
     return @project = Project.where(:identifier => params[:project_id]).first
+  end
+
+
+  def daily_status_params
+    params.require(:daily_status).permit(:content, :author_id)
   end
 end
